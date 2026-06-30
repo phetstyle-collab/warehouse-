@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://ba3kbgr2htgxp"]
+
+[ext_resource type="Script" uid="uid://dodvdonte4tgg" path="res://sensor_size.gd" id="1_ql60f"]
+[ext_resource type="Texture2D" uid="uid://d0joa43akkddm" path="res://icon.svg" id="2_4k781"]
+[ext_resource type="Texture2D" uid="uid://dm5oh388onh81" path="res://Untitled 10.png" id="3_c35nm"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="4_c35nm"]
+[ext_resource type="Script" uid="uid://ctehfdu5wsgbi" path="res://detect_area_2.gd" id="5_c35nm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jbpa"]
+size = Vector2(11.25, 10.125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilqdo"]
+atlas = ExtResource("3_c35nm")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwj3o"]
+atlas = ExtResource("3_c35nm")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hodk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilqdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwj3o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dccg2"]
+size = Vector2(46, 71.75)
+
+[node name="size_senser" type="Node2D"]
+script = ExtResource("1_ql60f")
+
+[node name="Visual" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.5, 4.9999986)
+scale = Vector2(0.2890625, 0.34374997)
+texture = ExtResource("2_4k781")
+
+[node name="DisplayRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Display" type="Label" parent="DisplayRoot"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 8.0
+offset_right = 71.0
+offset_bottom = 31.0
+text = "---"
+horizontal_alignment = 1
+
+[node name="DetectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5jbpa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.1367187, 0.1375)
+sprite_frames = SubResource("SpriteFrames_hodk7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 379.0
+offset_top = 128.0
+offset_right = 482.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("4_c35nm")
+text = "sizesensor"
+
+[node name="DetectArea2" type="Area2D" parent="."]
+script = ExtResource("5_c35nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea2"]
+visible = false
+position = Vector2(1, -16.125)
+shape = SubResource("RectangleShape2D_dccg2")

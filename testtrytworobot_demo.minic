@@ -1,0 +1,24 @@
+start(spawner);
+start(conveyor);
+
+# Arm 1 demo
+rotate(arm_1(-90));
+wait until (action(done)) {
+    rotate(arm_1(90));
+}
+
+# Arm 2 demo
+rotate(arm_2(-45));
+wait until (action(done)) {
+    rotate(arm_2(45));
+}
+
+while true {
+    wait until (color(has_value)) {
+        if (color == red || color == blue) {
+            set(diverter, open);
+        } else {
+            set(diverter, close);
+        }
+    }
+}

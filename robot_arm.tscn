@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://eesdlwbscfve"]
+
+[ext_resource type="Script" uid="uid://cisry2yqkwlmh" path="res://robot_arm.gd" id="1_atw18"]
+[ext_resource type="Script" uid="uid://dsiphdxmralvr" path="res://detect_arear.gd" id="3_bridn"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="4_xqrsc"]
+[ext_resource type="Texture2D" uid="uid://bu1rkdlddlcd0" path="res://robot_arm_frame_open.png" id="5_open"]
+[ext_resource type="Texture2D" uid="uid://stq3hjt7vcmj" path="res://robot_arm_frame_mid.png" id="6_mid"]
+[ext_resource type="Texture2D" uid="uid://csma6ctbyo2c1" path="res://robot_arm_frame_closed.png" id="7_closed"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_open")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_closed")
+}],
+"loop": false,
+"name": &"close",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_closed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_open")
+}],
+"loop": false,
+"name": &"open",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0bpxw"]
+radius = 17.117243
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqnol"]
+size = Vector2(46, 71.75)
+
+[node name="RobotArm" type="Node2D"]
+script = ExtResource("1_atw18")
+
+[node name="ArmPivot" type="Node2D" parent="."]
+
+[node name="ArmSprite" type="AnimatedSprite2D" parent="ArmPivot"]
+position = Vector2(4.7683716e-07, -20.000004)
+scale = Vector2(2.009, 2.1)
+sprite_frames = SubResource("SpriteFrames_grip")
+animation = &"close"
+
+[node name="AttachPoint" type="Marker2D" parent="ArmPivot"]
+position = Vector2(0, -65)
+
+[node name="GrabArea" type="Area2D" parent="ArmPivot"]
+position = Vector2(12, -48)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmPivot/GrabArea"]
+light_mask = 0
+position = Vector2(-12, -17)
+shape = SubResource("CircleShape2D_0bpxw")
+
+[node name="DetectArea" type="Area2D" parent="."]
+position = Vector2(1, -1)
+script = ExtResource("3_bridn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+visible = false
+position = Vector2(1, -16.125)
+shape = SubResource("RectangleShape2D_eqnol")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 275.0
+offset_top = -93.0
+offset_right = 393.0
+offset_bottom = -58.0
+theme_override_fonts/font = ExtResource("4_xqrsc")
+text = "robotarm"

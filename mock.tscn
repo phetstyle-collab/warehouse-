@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg33tllp2mx6y"]
+
+[ext_resource type="Script" uid="uid://crwvj7j6nhoqj" path="res://mini_c/test/mini_c_runtime_test.gd" id="1_cih16"]
+
+[node name="mock" type="Node2D"]
+script = ExtResource("1_cih16")

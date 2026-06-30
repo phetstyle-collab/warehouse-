@@ -1,0 +1,404 @@
+[gd_scene load_steps=12 format=3 uid="uid://dl2aexs0wwyh7"]
+
+[ext_resource type="Texture2D" uid="uid://u2e6gi4blfyr" path="res://Gemini_Generated_Image_372akc372akc372a (1).png" id="1_bg"]
+[ext_resource type="Script" uid="uid://xi0w0gj1nnhe" path="res://mainmenu.gd" id="2_script"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="3_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shell"]
+bg_color = Color(0.0470588, 0.0588235, 0.0784314, 0.82)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.576471, 0.203922, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.0862745, 0.109804, 0.14902, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.321569, 0.431373, 0.580392, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_alt"]
+bg_color = Color(0.0823529, 0.0980392, 0.129412, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.254902, 0.333333, 0.443137, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_primary"]
+bg_color = Color(0.913725, 0.662745, 0.254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85098, 0.47451, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.22)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_secondary"]
+bg_color = Color(0.172549, 0.231373, 0.333333, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.372549, 0.482353, 0.647059, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.16)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_quit"]
+bg_color = Color(0.372549, 0.184314, 0.164706, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.733333, 0.32549, 0.290196, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.16)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+bg_color = Color(0.0705882, 0.403922, 0.352941, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.411765, 0.858824, 0.717647, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0196078, 0.0156863, 0.52)
+
+[node name="SafeMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 24.0
+offset_right = -34.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OverlayShell" type="PanelContainer" parent="SafeMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shell")
+
+[node name="ShellMargin" type="MarginContainer" parent="SafeMargin/OverlayShell"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="LayoutRow" type="HBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TitleColumn" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="TitlePanel" type="PanelContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn"]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="TitleMargin" type="MarginContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 24
+
+[node name="TitleVBox" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SignalRow" type="HBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin/TitleVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SignalBadge" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin/TitleVBox/SignalRow"]
+custom_minimum_size = Vector2(182, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0588235, 0.0980392, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_badge")
+text = "SYSTEM ONLINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrackBadge" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin/TitleVBox/SignalRow"]
+custom_minimum_size = Vector2(244, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0588235, 0.0980392, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_badge")
+text = "MODE: CODING TRAINING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin/TitleVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.996078, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 58
+text = "SMART WAREHOUSE"
+
+[node name="SubtitleLabel" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin/TitleVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.964706, 0.74902, 0.345098, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "LOGIC AUTOMATION"
+
+[node name="TaglineLabel" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/TitlePanel/TitleMargin/TitleVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.764706, 0.831373, 0.913725, 1)
+theme_override_font_sizes/font_size = 18
+text = "Code the warehouse. Solve the logic. Automate the system."
+autowrap_mode = 3
+
+[node name="FeaturePanel" type="PanelContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_alt")
+
+[node name="FeatureMargin" type="MarginContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="FeatureVBox" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FeatureTitle" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "TRAINING FOCUS"
+
+[node name="FeatureBody" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.854902, 0.92549, 1)
+theme_override_font_sizes/font_size = 17
+text = "IF / ELSE  |  LOOPS  |  SENSORS  |  CONVEYOR CONTROL  |  ROBOT ARM AUTOMATION"
+autowrap_mode = 3
+
+[node name="StatusPanel" type="PanelContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="StatusMargin" type="MarginContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox/StatusPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="StatusVBox" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox/StatusPanel/StatusMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ProgressTitle" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox/StatusPanel/StatusMargin/StatusVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.411765, 0.858824, 0.717647, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "WAREHOUSE STATUS"
+
+[node name="ProgressBody" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/TitleColumn/FeaturePanel/FeatureMargin/FeatureVBox/StatusPanel/StatusMargin/StatusVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.976471, 0.980392, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Training Progress: 0/6 Missions\nCurrent Module: Conveyor Logic\nMode: Coding Training"
+
+[node name="MenuColumn" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow"]
+custom_minimum_size = Vector2(470, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="MenuPanel" type="PanelContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MenuMargin" type="MarginContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="MenuVBox" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="MenuTitle" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "CONTROL PANEL"
+
+[node name="MenuHint" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.8, 0.894118, 1)
+theme_override_font_sizes/font_size = 16
+text = "Select a training route to practice programming logic inside the smart warehouse."
+autowrap_mode = 3
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="StartButton" type="Button" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/ButtonsVBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0862745, 0.101961, 0.12549, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_primary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_primary")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_primary")
+text = "[>]  START GAME"
+
+[node name="LevelSelectButton" type="Button" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/ButtonsVBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_secondary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_secondary")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_secondary")
+text = "[#]  LEVEL SELECT"
+
+[node name="HowToPlayButton" type="Button" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/ButtonsVBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_secondary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_secondary")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_secondary")
+text = "[?]  HOW TO PLAY"
+
+[node name="TutorialButton" type="Button" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/ButtonsVBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_secondary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_secondary")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_secondary")
+text = "[!]  TUTORIAL"
+
+[node name="QuitButton" type="Button" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/ButtonsVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.945098, 0.941176, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_quit")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_quit")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_quit")
+text = "[X]  QUIT"
+
+[node name="SystemPanel" type="PanelContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_alt")
+
+[node name="SystemMargin" type="MarginContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/SystemPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="SystemVBox" type="VBoxContainer" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/SystemPanel/SystemMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SystemTitle" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/SystemPanel/SystemMargin/SystemVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.411765, 0.858824, 0.717647, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "TERMINAL FEED"
+
+[node name="SystemStatus" type="Label" parent="SafeMargin/OverlayShell/ShellMargin/LayoutRow/MenuColumn/MenuPanel/MenuMargin/MenuVBox/SystemPanel/SystemMargin/SystemVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.913725, 0.941176, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Primary path ready. Start Game opens the mission board. Tutorial teaches MiniC syntax step-by-step."
+autowrap_mode = 3

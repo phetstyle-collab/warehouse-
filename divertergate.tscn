@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://17ia2py7pu5a"]
+
+[ext_resource type="Script" uid="uid://4nhhn5q2vn31" path="res://divertergate.gd" id="1_2jjt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1jtb"]
+size = Vector2(13, 95)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2jjt7"]
+
+[node name="Divertergate" type="Node2D"]
+script = ExtResource("1_2jjt7")
+
+[node name="Paddle" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(-0.5, -30.5)
+shape = SubResource("RectangleShape2D_y1jtb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.49999976, -30)
+scale = Vector2(13.000002, 94)
+texture = SubResource("CanvasTexture_2jjt7")

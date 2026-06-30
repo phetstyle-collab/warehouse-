@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://duekljqsklsk4"]
+
+[ext_resource type="Script" uid="uid://ctt3dcnvllgo0" path="res://weight_sensor.gd" id="1_5jbpa"]
+[ext_resource type="Texture2D" uid="uid://d0joa43akkddm" path="res://icon.svg" id="1_kwa5k"]
+[ext_resource type="Texture2D" uid="uid://dm5oh388onh81" path="res://Untitled 10.png" id="3_hlx4y"]
+[ext_resource type="Script" uid="uid://ca1m5y0qlmfnx" path="res://detect_area_2w.gd" id="4_nwj3o"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="5_hodk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jbpa"]
+size = Vector2(46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilqdo"]
+atlas = ExtResource("3_hlx4y")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwj3o"]
+atlas = ExtResource("3_hlx4y")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hodk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilqdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwj3o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4uni"]
+size = Vector2(46, 46)
+
+[node name="WeightSensor" type="Node2D"]
+script = ExtResource("1_5jbpa")
+
+[node name="Visual" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.5, 4.9999986)
+scale = Vector2(0.2890625, 0.34374997)
+texture = ExtResource("1_kwa5k")
+
+[node name="DisplayRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -203.0
+offset_top = -14.0
+offset_right = -79.0
+offset_bottom = 16.0
+
+[node name="DisplayPanel" type="Panel" parent="DisplayRoot"]
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 30.0
+
+[node name="Display" type="Label" parent="DisplayRoot"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 118.0
+offset_bottom = 27.0
+text = "WEIGHT: ---"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DetectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5jbpa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.1367187, 0.1375)
+sprite_frames = SubResource("SpriteFrames_hodk7")
+
+[node name="DetectArea2" type="Area2D" parent="."]
+script = ExtResource("4_nwj3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea2"]
+visible = false
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_a4uni")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 405.0
+offset_top = -323.0
+offset_right = 529.0
+offset_bottom = -288.0
+theme_override_fonts/font = ExtResource("5_hodk7")
+text = "weightsensor"

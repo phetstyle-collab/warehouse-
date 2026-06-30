@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://v3fpu7u3546c"]
+
+[ext_resource type="Script" uid="uid://bh7fnmrltwk8m" path="res://color_sensor.gd" id="1_hqbmh"]
+[ext_resource type="Texture2D" uid="uid://d0joa43akkddm" path="res://icon.svg" id="2_jkft1"]
+[ext_resource type="Script" uid="uid://dhal0tacd7a76" path="res://detect_area.gd" id="3_lvo32"]
+[ext_resource type="Texture2D" uid="uid://sjtn7c47wbvv" path="res://mini_c/runtime/Untitled 12.png" id="3_rjpxi"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="5_nd16q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjpxi"]
+size = Vector2(46, 49.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvo32"]
+atlas = ExtResource("3_rjpxi")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd16q"]
+atlas = ExtResource("3_rjpxi")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5myvh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvo32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd16q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="ColorSensor" type="Node2D"]
+position = Vector2(26, 33)
+script = ExtResource("1_hqbmh")
+
+[node name="Visual" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-24, -31)
+scale = Vector2(0.40624997, 0.515625)
+texture = ExtResource("2_jkft1")
+
+[node name="DetectArea" type="Area2D" parent="."]
+script = ExtResource("3_lvo32")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(-23, -23.25)
+shape = SubResource("RectangleShape2D_rjpxi")
+
+[node name="DisplayRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -250.0
+offset_top = -33.0
+offset_right = -138.0
+offset_bottom = -3.0
+
+[node name="DisplayPanel" type="Panel" parent="DisplayRoot"]
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 30.0
+
+[node name="Display" type="Label" parent="DisplayRoot"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 106.0
+offset_bottom = 27.0
+text = "COLOR: ---"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-23, -23.000006)
+scale = Vector2(0.14375, 0.16054687)
+sprite_frames = SubResource("SpriteFrames_5myvh")
+animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = -440.0
+offset_top = -275.0
+offset_right = -322.0
+offset_bottom = -240.0
+theme_override_fonts/font = ExtResource("5_nd16q")
+text = "colorsensor"

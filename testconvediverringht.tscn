@@ -1,0 +1,67 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl487rdsouax7"]
+
+[ext_resource type="Script" uid="uid://dv1x477faxktr" path="res://camera_2d.gd" id="1_camera"]
+[ext_resource type="PackedScene" uid="uid://c52bbqgmlaxk6" path="res://conveyor.tscn" id="1_eu8ph"]
+[ext_resource type="PackedScene" uid="uid://s5ac6xomy6hd" path="res://conveyortoright.tscn" id="2_4jpds"]
+[ext_resource type="PackedScene" uid="uid://bueurkh8pwij1" path="res://divertergatecloseopen.tscn" id="3_8vjnh"]
+[ext_resource type="PackedScene" uid="uid://btq84xxe3fvf7" path="res://conveyorright.tscn" id="3_ev16t"]
+[ext_resource type="PackedScene" uid="uid://er7jpytlidx0" path="res://box_spawner.tscn" id="4_81d5n"]
+[ext_resource type="Script" uid="uid://dldju2alm2hmj" path="res://factory_controller.gd" id="5_81d5n"]
+[ext_resource type="Script" uid="uid://ul0qygu0nlak" path="res://mini_c/runtime/real_factory_controller.gd" id="6_b7w6k"]
+[ext_resource type="PackedScene" uid="uid://bd4g7meue1t8k" path="res://control.tscn" id="7_tucrm"]
+[ext_resource type="PackedScene" uid="uid://duekljqsklsk4" path="res://weight_sensor.tscn" id="8_tucrm"]
+[ext_resource type="PackedScene" uid="uid://v3fpu7u3546c" path="res://color_sensor.tscn" id="9_k38l6"]
+[ext_resource type="PackedScene" uid="uid://eesdlwbscfve" path="res://robot_arm.tscn" id="10_a22gi"]
+
+[node name="testconvediverringht" type="Node2D"]
+
+[node name="Conveyor" parent="." instance=ExtResource("1_eu8ph")]
+position = Vector2(-6, -8)
+
+[node name="Conveyor2" parent="." instance=ExtResource("1_eu8ph")]
+position = Vector2(245, -3)
+
+[node name="conveyortoright" parent="." instance=ExtResource("2_4jpds")]
+position = Vector2(-38, 252)
+
+[node name="Divertergatecloseopen" parent="." instance=ExtResource("3_8vjnh")]
+position = Vector2(43, 290)
+
+[node name="BoxSpawner" parent="." instance=ExtResource("4_81d5n")]
+position = Vector2(-1, 36)
+
+[node name="FactoryController" type="Node" parent="."]
+script = ExtResource("5_81d5n")
+conveyor_path = NodePath("../Conveyor")
+spawner_path = NodePath("../BoxSpawner")
+robot_arm_path = NodePath("../RobotArm")
+diverter_gate_path = NodePath("../Divertergatecloseopen")
+weight_sensor_path = NodePath("../WeightSensor")
+color_sensor_path = NodePath("../ColorSensor")
+
+[node name="RealFactoryController" type="Node" parent="."]
+script = ExtResource("6_b7w6k")
+factory_controller_path = NodePath("../FactoryController")
+
+[node name="Control" parent="." instance=ExtResource("7_tucrm")]
+offset_left = 359.0
+offset_top = 4.0
+offset_right = 392.0
+offset_bottom = 44.0
+real_factory_path = NodePath("../RealFactoryController")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(467, 287)
+script = ExtResource("1_camera")
+
+[node name="WeightSensor" parent="." instance=ExtResource("8_tucrm")]
+position = Vector2(5, 362)
+
+[node name="ColorSensor" parent="." instance=ExtResource("9_k38l6")]
+position = Vector2(29, 202)
+
+[node name="RobotArm" parent="." instance=ExtResource("10_a22gi")]
+position = Vector2(58, 351)
+
+[node name="ConveyorRight" parent="." instance=ExtResource("3_ev16t")]
+position = Vector2(42, 248)

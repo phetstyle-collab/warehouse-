@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2i72t1k7pcg4"]
+
+[ext_resource type="PackedScene" uid="uid://c52bbqgmlaxk6" path="res://conveyor.tscn" id="1_sydd3"]
+[ext_resource type="Script" uid="uid://tinov7joo3hi" path="res://conveyor_3_way.gd" id="2_2d2gx"]
+
+[node name="conve_3way" type="Node2D"]
+script = ExtResource("2_2d2gx")
+
+[node name="Conveyor" parent="." instance=ExtResource("1_sydd3")]
+
+[node name="Conveyor2" parent="." instance=ExtResource("1_sydd3")]
+position = Vector2(28.999985, 424)
+rotation = -0.61086524
+
+[node name="Conveyor3" parent="." instance=ExtResource("1_sydd3")]
+position = Vector2(-27.999985, 422)
+rotation = 0.61086524

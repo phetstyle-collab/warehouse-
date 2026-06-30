@@ -1,0 +1,178 @@
+[gd_scene load_steps=17 format=3 uid="uid://da2qaajngr01d"]
+
+[ext_resource type="Script" uid="uid://bw5ykun5ljyo6" path="res://test_4.gd" id="1_scene"]
+[ext_resource type="PackedScene" uid="uid://c52bbqgmlaxk6" path="res://conveyor.tscn" id="1_wge5k"]
+[ext_resource type="PackedScene" uid="uid://s5ac6xomy6hd" path="res://conveyortoright.tscn" id="2_s5hs5"]
+[ext_resource type="PackedScene" uid="uid://bueurkh8pwij1" path="res://divertergatecloseopen.tscn" id="3_d6512"]
+[ext_resource type="PackedScene" uid="uid://er7jpytlidx0" path="res://box_spawner.tscn" id="4_uhdy7"]
+[ext_resource type="Script" uid="uid://dldju2alm2hmj" path="res://factory_controller.gd" id="5_ekmai"]
+[ext_resource type="Script" uid="uid://ul0qygu0nlak" path="res://mini_c/runtime/real_factory_controller.gd" id="6_54gtm"]
+[ext_resource type="PackedScene" uid="uid://bd4g7meue1t8k" path="res://control.tscn" id="7_6qdyt"]
+[ext_resource type="Script" uid="uid://dv1x477faxktr" path="res://camera_2d.gd" id="8_5dc4a"]
+[ext_resource type="PackedScene" uid="uid://duekljqsklsk4" path="res://weight_sensor.tscn" id="9_jcipe"]
+[ext_resource type="PackedScene" uid="uid://v3fpu7u3546c" path="res://color_sensor.tscn" id="10_125di"]
+[ext_resource type="PackedScene" uid="uid://eesdlwbscfve" path="res://robot_arm.tscn" id="11_vkfie"]
+[ext_resource type="PackedScene" uid="uid://btq84xxe3fvf7" path="res://conveyorright.tscn" id="12_8dw08"]
+[ext_resource type="PackedScene" uid="uid://d3p1alg5u58d5" path="res://destroyer.tscn" id="12_d6512"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="13_uhdy7"]
+
+[sub_resource type="Curve2D" id="Curve2D_uhdy7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 43.08029, 451.10315, 0, 0, 0, 0, 45.670654, 244.56705, 0, 0, 0, 0, 44.80722, -14.577332, 0, 0, 0, 0, -19.088379, -13.603088, 0, 0, 0, 0, -561.3374, -16.525787, 0, 0, 0, 0, -562.2008, 451.10315)
+}
+point_count = 6
+
+[node name="test2stagediverandrobot" type="Node2D"]
+position = Vector2(2, -152)
+script = ExtResource("1_scene")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 220)
+script = ExtResource("8_5dc4a")
+
+[node name="Station1" type="Node2D" parent="."]
+
+[node name="Conveyor" parent="Station1" instance=ExtResource("1_wge5k")]
+position = Vector2(-3, 100)
+
+[node name="ColorSensor" parent="Station1" instance=ExtResource("10_125di")]
+position = Vector2(28, 270)
+
+[node name="BoxSpawner" parent="Station1" instance=ExtResource("4_uhdy7")]
+position = Vector2(4, 129)
+spawn_interval = 1.5
+max_boxes = 5
+force_first_box_heavy = true
+
+[node name="destroyer" parent="Station1" instance=ExtResource("12_d6512")]
+position = Vector2(-179, 485)
+
+[node name="RealFactoryController" type="Node" parent="Station1"]
+script = ExtResource("6_54gtm")
+factory_controller_path = NodePath("../FactoryController")
+
+[node name="FactoryController" type="Node" parent="Station1"]
+script = ExtResource("5_ekmai")
+conveyor_path = NodePath("../Conveyor")
+conveyor_paths = Array[NodePath]([NodePath("../Conveyor"), NodePath("../conveyortoright")])
+spawner_path = NodePath("../BoxSpawner")
+diverter_gate_path = NodePath("../Divertergatecloseopen")
+color_sensor_path = NodePath("../ColorSensor")
+
+[node name="Divertergatecloseopen" parent="Station1" instance=ExtResource("3_d6512")]
+position = Vector2(44, 338)
+
+[node name="conveyortoright" parent="Station1" instance=ExtResource("2_s5hs5")]
+position = Vector2(-37, 297)
+diverter_gate_path = NodePath("../Divertergatecloseopen")
+
+[node name="ConveyorRight" parent="Station1" instance=ExtResource("12_8dw08")]
+position = Vector2(63, 294)
+
+[node name="Station2" type="Node2D" parent="."]
+position = Vector2(353, -14)
+
+[node name="Conveyor" parent="Station2" instance=ExtResource("1_wge5k")]
+position = Vector2(-31, 168)
+
+[node name="WeightSensor" parent="Station2" instance=ExtResource("9_jcipe")]
+position = Vector2(-22, 448)
+
+[node name="destroyer3" parent="Station2" instance=ExtResource("12_d6512")]
+position = Vector2(-97, 403)
+
+[node name="RealFactoryController" type="Node" parent="Station2"]
+script = ExtResource("6_54gtm")
+factory_controller_path = NodePath("../FactoryController")
+
+[node name="FactoryController" type="Node" parent="Station2"]
+script = ExtResource("5_ekmai")
+conveyor_path = NodePath("../Conveyor")
+robot_arm_path = NodePath("../Path2D/PathFollow2D/RobotArm")
+weight_sensor_path = NodePath("../WeightSensor")
+
+[node name="Path2D" type="Path2D" parent="Station2"]
+position = Vector2(-17.89302, 18.96297)
+scale = Vector2(1.1581396, 1.0264549)
+curve = SubResource("Curve2D_uhdy7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Station2/Path2D"]
+position = Vector2(43.08029, 451.10315)
+rotation = -1.5582551
+loop = false
+
+[node name="RobotArm" parent="Station2/Path2D/PathFollow2D" instance=ExtResource("11_vkfie")]
+position = Vector2(27.235138, 2.3103333)
+rotation = 1.5938749
+scale = Vector2(0.8634536, 0.97422713)
+skew = 0.00025713444
+move_target_path = NodePath("../../../../Marker2D")
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = -536.0
+offset_top = 230.0
+offset_right = -429.0
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(0.9130927, 0.87861747, 0.7201882, 1)
+text = "Restart
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 166.0
+offset_top = 36.0
+offset_right = 269.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("13_uhdy7")
+text = "hover"
+
+[node name="code1" type="Button" parent="."]
+offset_left = 258.0
+offset_top = 72.0
+offset_right = 333.0
+offset_bottom = 102.0
+text = "code1"
+
+[node name="Control" parent="code1" instance=ExtResource("7_6qdyt")]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 138.0
+offset_top = -211.0
+offset_right = 171.0
+offset_bottom = -171.0
+grow_vertical = 2
+real_factory_path = NodePath("")
+mission_level_id = "level_8"
+station_root_path = NodePath("")
+
+[node name="code2" type="Button" parent="."]
+offset_left = 466.0
+offset_top = 71.0
+offset_right = 541.0
+offset_bottom = 101.0
+text = "code2"
+
+[node name="Control" parent="code2" instance=ExtResource("7_6qdyt")]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 138.0
+offset_top = -211.0
+offset_right = 171.0
+offset_bottom = -171.0
+grow_vertical = 2
+real_factory_path = NodePath("")
+mission_level_id = "level_8"
+station_root_path = NodePath("")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(499, -39)
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

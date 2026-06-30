@@ -1,0 +1,577 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdfm7j6r01vjs"]
+
+[ext_resource type="Texture2D" uid="uid://d0tydmkf508ul" path="res://α╣éα╕úα╕çα╕çα╕▓α╕Öα╕¬α╕òα╕╡α╕íα╕₧α╕▒α╕çα╕üα╣îα╣âα╕Öα╕¬α╣äα╕òα╕Ñα╣îα╕₧α╕┤α╕üα╣Çα╕ïα╕Ñ.png" id="1_bg"]
+[ext_resource type="Script" uid="uid://v0g34lbyj65" path="res://how_to_play.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://bed4e4atm10fu" path="res://button.gd" id="3_back"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="4_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shell"]
+bg_color = Color(0.0352941, 0.0470588, 0.0705882, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.854902, 0.596078, 0.172549, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+bg_color = Color(0.0823529, 0.109804, 0.14902, 0.98)
+border_width_bottom = 2
+border_color = Color(0.854902, 0.596078, 0.172549, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_next"]
+bg_color = Color(0.835294, 0.564706, 0.172549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.85098, 0.509804, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sidebar"]
+bg_color = Color(0.0588235, 0.0784314, 0.113725, 0.96)
+border_width_right = 1
+border_color = Color(0.286275, 0.384314, 0.517647, 1)
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav"]
+bg_color = Color(0.117647, 0.156863, 0.223529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.333333, 0.439216, 0.588235, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.0745098, 0.101961, 0.141176, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.278431, 0.392157, 0.541176, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_code"]
+bg_color = Color(0.0313726, 0.0431373, 0.0666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.27451, 0.447059, 0.678431, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back"]
+bg_color = Color(0.262745, 0.313726, 0.403922, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.52549, 0.627451, 0.803922, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0196078, 0.0352941, 0.4)
+
+[node name="SafeMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = -22.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainShell" type="PanelContainer" parent="SafeMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shell")
+
+[node name="ShellMargin" type="MarginContainer" parent="SafeMargin/MainShell"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="ShellVBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TopBar" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox"]
+custom_minimum_size = Vector2(0, 148)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
+
+[node name="TopBarMargin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 18
+
+[node name="TopBarVBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar/TopBarMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleRow" type="HBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar/TopBarMargin/TopBarVBox"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar/TopBarMargin/TopBarVBox/TitleRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.984314, 0.992157, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 42
+text = "HOW TO PLAY"
+vertical_alignment = 1
+
+[node name="TutorialBadge" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar/TopBarMargin/TopBarVBox/TitleRow"]
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0862745, 0.101961, 0.12549, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_next")
+text = "TUTORIAL 1/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar/TopBarMargin/TopBarVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.792157, 0.839216, 0.921569, 1)
+theme_override_font_sizes/font_size = 18
+text = "Master the Mini-C command flow and operate the factory line like a systems engineer."
+autowrap_mode = 3
+
+[node name="HintStrip" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/TopBar/TopBarMargin/TopBarVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.811765, 0.431373, 1)
+theme_override_font_sizes/font_size = 17
+text = "MISSION HINT: Read the rule cards first, then copy the sample into the code panel before testing it in a level."
+autowrap_mode = 3
+
+[node name="ContentRow" type="HBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="SidebarPanel" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sidebar")
+
+[node name="SidebarMargin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SidebarVBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="SidebarTitle" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 24
+text = "LESSONS"
+
+[node name="SidebarHint" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.694118, 0.756863, 0.854902, 1)
+theme_override_font_sizes/font_size = 16
+text = "Choose a topic or use NEXT to move through the tutorial path."
+autowrap_mode = 3
+
+[node name="NavButtons" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BasicRulesButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/NavButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+text = "01  BASIC RULES"
+
+[node name="VariablesButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/NavButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+text = "02  VARIABLES"
+
+[node name="IfElseButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/NavButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+text = "03  IF / ELSE"
+
+[node name="LoopsButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/NavButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+text = "04  LOOPS"
+
+[node name="FactoryActionsButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/NavButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+text = "05  FACTORY ACTIONS"
+
+[node name="ExampleCodeButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/NavButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+text = "06  EXAMPLE CODE"
+
+[node name="QuickTipPanel" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="QuickTipMargin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/QuickTipPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="QuickTipLabel" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/SidebarPanel/SidebarMargin/SidebarVBox/QuickTipPanel/QuickTipMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.509804, 1)
+theme_override_font_sizes/font_size = 16
+text = "QUICK TIP: Wait for sensors before moving boxes with robot arms."
+autowrap_mode = 3
+
+[node name="ContentPanel" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="ContentMargin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ContentVBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="SectionTitle" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988235, 0.992157, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 34
+text = "Basic Rules"
+
+[node name="SectionSubtitle" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.807843, 0.901961, 1)
+theme_override_font_sizes/font_size = 18
+text = "Learn the formatting, comments, and command flow expected by the Mini-C parser."
+autowrap_mode = 3
+
+[node name="CardsGrid" type="HBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="Card1" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid"]
+custom_minimum_size = Vector2(0, 232)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card1"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card1/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card1/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "01"
+
+[node name="Title" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card1/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988235, 0.992157, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "Command Flow"
+
+[node name="Body" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card1/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.807843, 0.901961, 1)
+theme_override_font_sizes/font_size = 17
+text = "Most actions end with a semicolon and execute from top to bottom."
+autowrap_mode = 3
+
+[node name="Card2" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid"]
+custom_minimum_size = Vector2(0, 232)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card2"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card2/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card2/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "02"
+
+[node name="Title" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card2/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988235, 0.992157, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "Comments"
+
+[node name="Body" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card2/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.807843, 0.901961, 1)
+theme_override_font_sizes/font_size = 17
+text = "Use # to leave notes that help explain why a machine step exists."
+autowrap_mode = 3
+
+[node name="Card3" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid"]
+custom_minimum_size = Vector2(0, 232)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card3"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card3/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card3/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "03"
+
+[node name="Title" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card3/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988235, 0.992157, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "Blocks"
+
+[node name="Body" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CardsGrid/Card3/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.807843, 0.901961, 1)
+theme_override_font_sizes/font_size = 17
+text = "Use braces to group loops, conditional logic, and mission-safe routines."
+autowrap_mode = 3
+
+[node name="CodePanel" type="PanelContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox"]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_code")
+
+[node name="CodeMargin" type="MarginContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="CodeVBox" type="VBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CodeHeader" type="HBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin/CodeVBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="CodeLabel" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin/CodeVBox/CodeHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 24
+text = "EXAMPLE CODE"
+
+[node name="EditorBadge" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin/CodeVBox/CodeHeader"]
+custom_minimum_size = Vector2(196, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0352941, 0.0470588, 0.0705882, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_next")
+text = "MINI-C CONSOLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CodeBlock" type="HBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin/CodeVBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LineNumbers" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin/CodeVBox/CodeBlock"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.372549, 0.478431, 0.631373, 1)
+theme_override_font_sizes/font_size = 16
+text = "1
+2
+3
+4"
+vertical_alignment = 1
+
+[node name="CodeText" type="RichTextLabel" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/ContentRow/ContentPanel/ContentMargin/ContentVBox/CodePanel/CodeMargin/CodeVBox/CodeBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.878431, 0.921569, 0.988235, 1)
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "# Boot the line
+start(spawner);
+start(conveyor);
+wait until (weight(has_value));"
+fit_content = true
+scroll_active = false
+
+[node name="BottomBar" type="HBoxContainer" parent="SafeMargin/MainShell/ShellMargin/ShellVBox"]
+custom_minimum_size = Vector2(0, 78)
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="FooterTip" type="Label" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.756863, 0.815686, 0.909804, 1)
+theme_override_font_sizes/font_size = 16
+text = "TIP: Treat each lesson like a mission briefing. Read the cards, inspect the sample, then build your own version."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MenuButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/BottomBar"]
+custom_minimum_size = Vector2(220, 56)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_back")
+text = "BACK TO MENU"
+
+[node name="BackButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/BottomBar"]
+custom_minimum_size = Vector2(176, 56)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_back")
+text = "BACK"
+script = ExtResource("3_back")
+
+[node name="NextButton" type="Button" parent="SafeMargin/MainShell/ShellMargin/ShellVBox/BottomBar"]
+custom_minimum_size = Vector2(210, 56)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0862745, 0.101961, 0.12549, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_next")
+text = "NEXT LESSON"

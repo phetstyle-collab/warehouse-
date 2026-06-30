@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://l2ao1at2beo7"]
+
+[ext_resource type="Script" uid="uid://bk4djqsa725pu" path="res://canvas_layer.gd" id="1_8nidx"]
+[ext_resource type="Texture2D" uid="uid://dk5e5aawn8bxt" path="res://istockphoto-1271182194-612x612.jpg" id="2_s5opc"]
+[ext_resource type="Texture2D" uid="uid://dt0py10aptm4u" path="res://573f10d7-4bdf-4944-b96e-88bf72c8a9a9.jpg" id="3_2ug66"]
+
+[node name="Quest2" type="CanvasLayer"]
+script = ExtResource("1_8nidx")
+
+[node name="HelpButton" type="Button" parent="."]
+offset_left = 198.0
+offset_top = 18.0
+offset_right = 330.0
+offset_bottom = 60.0
+text = "ภารกิจ"
+
+[node name="GuideWindow" type="Panel" parent="."]
+offset_left = 198.0
+offset_top = 72.0
+offset_right = 698.0
+offset_bottom = 392.0
+
+[node name="Label" type="Label" parent="GuideWindow"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 454.0
+offset_bottom = 290.0
+text = "QUEST!!
+
+จงเปิดการปล่อยของและสายพาน
+และเมื่อมีของเข้าเซนฌวอร์น้ำหนักให้ทำการ
+หยุดสายพานและทำการหยุดปล่อยของด้วย"
+
+[node name="CloseButton" type="Button" parent="GuideWindow"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 12.0
+offset_right = 486.0
+offset_bottom = 46.0
+text = "X"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://s5ac6xomy6hd"]
+
+[ext_resource type="Script" uid="uid://5omho21bgf4s" path="res://conveyorright.gd" id="1_xc1c0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt2oa"]
+size = Vector2(93, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc1c0"]
+size = Vector2(93.1875, 47)
+
+[node name="conveyortoright" type="Node2D"]
+script = ExtResource("1_xc1c0")
+
+[node name="detectedarea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectedarea"]
+position = Vector2(62.5, 13.5)
+shape = SubResource("RectangleShape2D_yt2oa")
+
+[node name="beltarea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="beltarea"]
+position = Vector2(62.40625, 13)
+shape = SubResource("RectangleShape2D_xc1c0")

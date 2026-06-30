@@ -1,0 +1,460 @@
+[gd_scene load_steps=2 format=3 uid="uid://djlf2wggxmkju"]
+
+[ext_resource type="Script" uid="uid://bk4djqsa725pu" path="res://canvas_layer.gd" id="1_script"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="HelpButton" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 190.0
+offset_bottom = 66.0
+text = "คู่มือ"
+
+[node name="QuestButton" type="Button" parent="."]
+visible = false
+offset_left = 204.0
+offset_top = 18.0
+offset_right = 370.0
+offset_bottom = 66.0
+text = "ภารกิจ"
+
+[node name="HintButton" type="Button" parent="."]
+visible = false
+offset_left = 384.0
+offset_top = 18.0
+offset_right = 550.0
+offset_bottom = 66.0
+text = "คำใบ้"
+
+[node name="GuideWindow" type="Panel" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 112.0
+offset_right = 1240.0
+offset_bottom = 760.0
+
+[node name="HeaderTitle" type="Label" parent="GuideWindow"]
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 496.0
+offset_bottom = 72.0
+text = "คู่มือ Mini-C"
+
+[node name="HeaderSubtitle" type="Label" parent="GuideWindow"]
+offset_left = 36.0
+offset_top = 76.0
+offset_right = 640.0
+offset_bottom = 112.0
+text = "คำสั่งพื้นฐานสำหรับควบคุมคลังสินค้าอัตโนมัติ"
+autowrap_mode = 3
+
+[node name="BadgeRow" type="HBoxContainer" parent="GuideWindow"]
+offset_left = 36.0
+offset_top = 122.0
+offset_right = 476.0
+offset_bottom = 156.0
+theme_override_constants/separation = 10
+
+[node name="BadgeBeginner" type="Label" parent="GuideWindow/BadgeRow"]
+custom_minimum_size = Vector2(96, 28)
+layout_mode = 2
+text = "Beginner"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BadgeLogic" type="Label" parent="GuideWindow/BadgeRow"]
+custom_minimum_size = Vector2(82, 28)
+layout_mode = 2
+text = "Logic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BadgeAutomation" type="Label" parent="GuideWindow/BadgeRow"]
+custom_minimum_size = Vector2(122, 28)
+layout_mode = 2
+text = "Automation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BadgeMiniC" type="Label" parent="GuideWindow/BadgeRow"]
+custom_minimum_size = Vector2(78, 28)
+layout_mode = 2
+text = "Mini-C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="GuideWindow"]
+offset_left = 1128.0
+offset_top = 24.0
+offset_right = 1180.0
+offset_bottom = 76.0
+text = "X"
+
+[node name="ManualRoot" type="Control" parent="GuideWindow"]
+offset_left = 28.0
+offset_top = 170.0
+offset_right = 1172.0
+offset_bottom = 610.0
+
+[node name="CategoryPanel" type="Panel" parent="GuideWindow/ManualRoot"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 270.0
+offset_bottom = 440.0
+
+[node name="CategoryTitle" type="Label" parent="GuideWindow/ManualRoot/CategoryPanel"]
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 190.0
+offset_bottom = 52.0
+text = "หมวดคำสั่ง"
+
+[node name="CategoryHint" type="Label" parent="GuideWindow/ManualRoot/CategoryPanel"]
+offset_left = 20.0
+offset_top = 56.0
+offset_right = 236.0
+offset_bottom = 104.0
+text = "เลือกหัวข้อทางซ้ายเพื่อดูคำอธิบายและตัวอย่างโค้ด"
+autowrap_mode = 3
+
+[node name="CategoryScroll" type="ScrollContainer" parent="GuideWindow/ManualRoot/CategoryPanel"]
+offset_left = 20.0
+offset_top = 118.0
+offset_right = 250.0
+offset_bottom = 406.0
+horizontal_scroll_mode = 0
+
+[node name="CategoryButtons" type="VBoxContainer" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll"]
+custom_minimum_size = Vector2(230, 420)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BasicButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "คำสั่งพื้นฐาน"
+
+[node name="ConveyorButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "สายพานและกล่อง"
+
+[node name="ArmButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "แขนกล"
+
+[node name="SensorButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "เซนเซอร์"
+
+[node name="IfElseButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "เงื่อนไข if / else"
+
+[node name="LoopButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "ลูป while"
+
+[node name="ExampleButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "ตัวอย่างโค้ด"
+
+[node name="ErrorButton" type="Button" parent="GuideWindow/ManualRoot/CategoryPanel/CategoryScroll/CategoryButtons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "ข้อผิดพลาดที่พบบ่อย"
+
+[node name="ContentPanel" type="Panel" parent="GuideWindow/ManualRoot"]
+offset_left = 288.0
+offset_top = 0.0
+offset_right = 1144.0
+offset_bottom = 440.0
+
+[node name="ContentScroll" type="ScrollContainer" parent="GuideWindow/ManualRoot/ContentPanel"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 836.0
+offset_bottom = 422.0
+horizontal_scroll_mode = 0
+
+[node name="ContentVBox" type="VBoxContainer" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll"]
+custom_minimum_size = Vector2(790, 900)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="MissionPanel" type="Panel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox"]
+custom_minimum_size = Vector2(0, 118)
+layout_mode = 2
+
+[node name="MissionTitle" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/MissionPanel"]
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 286.0
+offset_bottom = 46.0
+text = "ภารกิจปัจจุบัน"
+
+[node name="MissionBody" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/MissionPanel"]
+offset_left = 18.0
+offset_top = 50.0
+offset_right = 760.0
+offset_bottom = 100.0
+text = "คัดแยกกล่องตามน้ำหนักด้วยเซนเซอร์และแขนกล"
+autowrap_mode = 3
+
+[node name="SectionTitle" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox"]
+layout_mode = 2
+text = "คำสั่งพื้นฐาน"
+
+[node name="SectionBody" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox"]
+layout_mode = 2
+text = "ใช้คำสั่งกลุ่มนี้เพื่อเริ่มการทำงานของระบบและสั่งให้เครื่องจักรตอบสนองตามลำดับ"
+autowrap_mode = 3
+
+[node name="CommandCards" type="VBoxContainer" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Card1" type="Panel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards"]
+custom_minimum_size = Vector2(0, 132)
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card1"]
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 70.0
+offset_bottom = 54.0
+text = "01"
+
+[node name="Title" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card1"]
+offset_left = 78.0
+offset_top = 16.0
+offset_right = 350.0
+offset_bottom = 48.0
+text = "start(conveyor);"
+
+[node name="Desc" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card1"]
+offset_left = 78.0
+offset_top = 50.0
+offset_right = 750.0
+offset_bottom = 80.0
+text = "เริ่มให้สายพานทำงานและเตรียมระบบให้กล่องเคลื่อนที่"
+autowrap_mode = 3
+
+[node name="Code" type="RichTextLabel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card1"]
+offset_left = 78.0
+offset_top = 86.0
+offset_right = 750.0
+offset_bottom = 120.0
+bbcode_enabled = true
+text = "[code]start(conveyor);\nwait until (weight(has_value));[/code]"
+fit_content = true
+scroll_active = false
+
+[node name="Card2" type="Panel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards"]
+custom_minimum_size = Vector2(0, 132)
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card2"]
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 70.0
+offset_bottom = 54.0
+text = "02"
+
+[node name="Title" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card2"]
+offset_left = 78.0
+offset_top = 16.0
+offset_right = 350.0
+offset_bottom = 48.0
+text = "wait until (...);"
+
+[node name="Desc" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card2"]
+offset_left = 78.0
+offset_top = 50.0
+offset_right = 750.0
+offset_bottom = 80.0
+text = "หยุดรอจนกว่าสถานะของเซนเซอร์หรือการทำงานจะพร้อมก่อน"
+autowrap_mode = 3
+
+[node name="Code" type="RichTextLabel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card2"]
+offset_left = 78.0
+offset_top = 86.0
+offset_right = 750.0
+offset_bottom = 120.0
+bbcode_enabled = true
+text = "[code]wait until (action(done));[/code]"
+fit_content = true
+scroll_active = false
+
+[node name="Card3" type="Panel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards"]
+custom_minimum_size = Vector2(0, 132)
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card3"]
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 70.0
+offset_bottom = 54.0
+text = "03"
+
+[node name="Title" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card3"]
+offset_left = 78.0
+offset_top = 16.0
+offset_right = 350.0
+offset_bottom = 48.0
+text = "stop(spawner);"
+
+[node name="Desc" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card3"]
+offset_left = 78.0
+offset_top = 50.0
+offset_right = 750.0
+offset_bottom = 80.0
+text = "หยุดการปล่อยกล่องเมื่อสายการผลิตต้องการพักหรือเตรียมคัดแยก"
+autowrap_mode = 3
+
+[node name="Code" type="RichTextLabel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/CommandCards/Card3"]
+offset_left = 78.0
+offset_top = 86.0
+offset_right = 750.0
+offset_bottom = 120.0
+bbcode_enabled = true
+text = "[code]stop(spawner);\nstop(conveyor);[/code]"
+fit_content = true
+scroll_active = false
+
+[node name="QuickExamplePanel" type="Panel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="QuickExampleTitle" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/QuickExamplePanel"]
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 46.0
+text = "Quick Example"
+
+[node name="QuickExampleCode" type="RichTextLabel" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/QuickExamplePanel"]
+offset_left = 18.0
+offset_top = 56.0
+offset_right = 430.0
+offset_bottom = 212.0
+bbcode_enabled = true
+text = "[code]start(spawner);\nstart(conveyor);\n\nwhile (box_detected) {\n    if (weight > 5) {\n        rotate(arm, 90);\n        pick(box);\n        drop(box);\n    }\n}[/code]"
+fit_content = true
+scroll_active = false
+
+[node name="QuickExampleDesc" type="Label" parent="GuideWindow/ManualRoot/ContentPanel/ContentScroll/ContentVBox/QuickExamplePanel"]
+offset_left = 454.0
+offset_top = 56.0
+offset_right = 756.0
+offset_bottom = 210.0
+text = "โค้ดนี้เริ่มปล่อยกล่อง เปิดสายพาน และใช้เงื่อนไขเพื่อตรวจน้ำหนักกล่องก่อนสั่งแขนกลให้หยิบและวาง"
+autowrap_mode = 3
+
+[node name="QuestRoot" type="Control" parent="GuideWindow"]
+visible = false
+offset_left = 28.0
+offset_top = 170.0
+offset_right = 1172.0
+offset_bottom = 610.0
+
+[node name="QuestPanel" type="Panel" parent="GuideWindow/QuestRoot"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1144.0
+offset_bottom = 440.0
+
+[node name="QuestTitle" type="Label" parent="GuideWindow/QuestRoot/QuestPanel"]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 56.0
+text = "ภารกิจปัจจุบัน"
+
+[node name="QuestGoal" type="Label" parent="GuideWindow/QuestRoot/QuestPanel"]
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 1090.0
+offset_bottom = 120.0
+text = "เป้าหมาย"
+autowrap_mode = 3
+
+[node name="QuestChecklist" type="Label" parent="GuideWindow/QuestRoot/QuestPanel"]
+offset_left = 24.0
+offset_top = 136.0
+offset_right = 540.0
+offset_bottom = 392.0
+text = "ขั้นตอน"
+autowrap_mode = 3
+
+[node name="QuestConcepts" type="Label" parent="GuideWindow/QuestRoot/QuestPanel"]
+offset_left = 580.0
+offset_top = 136.0
+offset_right = 1090.0
+offset_bottom = 392.0
+text = "แนวคิดที่ต้องใช้"
+autowrap_mode = 3
+
+[node name="HintWindow" type="Panel" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 112.0
+offset_right = 1240.0
+offset_bottom = 760.0
+
+[node name="HintTitle" type="Label" parent="HintWindow"]
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 420.0
+offset_bottom = 72.0
+text = "คำใบ้สำหรับภารกิจ"
+
+[node name="HintSubtitle" type="Label" parent="HintWindow"]
+offset_left = 36.0
+offset_top = 78.0
+offset_right = 700.0
+offset_bottom = 112.0
+text = "ใช้คำใบ้ทีละขั้นเพื่อวางลำดับตรรกะก่อนเขียน Mini-C"
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="HintWindow"]
+offset_left = 1128.0
+offset_top = 24.0
+offset_right = 1180.0
+offset_bottom = 76.0
+text = "X"
+
+[node name="HintScroll" type="ScrollContainer" parent="HintWindow"]
+offset_left = 30.0
+offset_top = 138.0
+offset_right = 1110.0
+offset_bottom = 560.0
+horizontal_scroll_mode = 0
+
+[node name="Label" type="Label" parent="HintWindow/HintScroll"]
+custom_minimum_size = Vector2(1040, 520)
+layout_mode = 2
+text = "Hint"
+autowrap_mode = 3
+
+[node name="PrevButton" type="Button" parent="HintWindow"]
+offset_left = 882.0
+offset_top = 576.0
+offset_right = 998.0
+offset_bottom = 622.0
+text = "ก่อนหน้า"
+
+[node name="NextButton" type="Button" parent="HintWindow"]
+offset_left = 1010.0
+offset_top = 576.0
+offset_right = 1144.0
+offset_bottom = 622.0
+text = "ถัดไป"

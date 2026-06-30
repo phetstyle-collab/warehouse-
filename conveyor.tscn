@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://c52bbqgmlaxk6"]
+
+[ext_resource type="Script" uid="uid://1kww540dfytm" path="res://conveyor.gd" id="1_be0bl"]
+[ext_resource type="Script" uid="uid://blgrc4tmimpu4" path="res://detect_areac.gd" id="2_m44ft"]
+[ext_resource type="Texture2D" uid="uid://djjm12k06h0pq" path="res://Untitled 3 (1).png" id="2_wo26x"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="4_2jdux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqewr"]
+size = Vector2(54.5, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo26x"]
+size = Vector2(57, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyola"]
+atlas = ExtResource("2_wo26x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m44ft"]
+atlas = ExtResource("2_wo26x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jdux"]
+atlas = ExtResource("2_wo26x")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqewr"]
+atlas = ExtResource("2_wo26x")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4a5ni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyola")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m44ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jdux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqewr")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Conveyor" type="Node2D"]
+script = ExtResource("1_be0bl")
+
+[node name="DetectArea" type="Area2D" parent="."]
+script = ExtResource("2_m44ft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(7.75, 215)
+shape = SubResource("RectangleShape2D_dqewr")
+
+[node name="BeltArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeltArea"]
+position = Vector2(9.5, 216.5)
+shape = SubResource("RectangleShape2D_wo26x")
+
+[node name="Visual" type="Sprite2D" parent="."]
+position = Vector2(2.25, 24.75)
+scale = Vector2(5.5, 50.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.499998, 218)
+scale = Vector2(0.92187494, 6.6874995)
+sprite_frames = SubResource("SpriteFrames_4a5ni")
+animation = &"run"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 393.0
+offset_top = -401.0
+offset_right = 496.0
+offset_bottom = -366.0
+theme_override_fonts/font = ExtResource("4_2jdux")
+text = "conveyor"

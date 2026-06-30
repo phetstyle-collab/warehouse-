@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf0f3ay4p52n6"]
+
+[ext_resource type="PackedScene" uid="uid://2i72t1k7pcg4" path="res://conve3way.tscn" id="1_5jqm2"]
+[ext_resource type="Script" uid="uid://dv1x477faxktr" path="res://camera_2d.gd" id="1_camera"]
+[ext_resource type="PackedScene" uid="uid://er7jpytlidx0" path="res://box_spawner.tscn" id="2_114j4"]
+[ext_resource type="PackedScene" uid="uid://bd4g7meue1t8k" path="res://control.tscn" id="3_114j4"]
+[ext_resource type="Script" uid="uid://ul0qygu0nlak" path="res://mini_c/runtime/real_factory_controller.gd" id="4_flt5s"]
+[ext_resource type="Script" uid="uid://dldju2alm2hmj" path="res://factory_controller.gd" id="5_y1384"]
+[ext_resource type="PackedScene" uid="uid://duekljqsklsk4" path="res://weight_sensor.tscn" id="6_qfowl"]
+[ext_resource type="PackedScene" uid="uid://17ia2py7pu5a" path="res://divertergate.tscn" id="7_d6oye"]
+[ext_resource type="PackedScene" uid="uid://ba3kbgr2htgxp" path="res://size_senser.tscn" id="8_d6oye"]
+
+[node name="conveyor3waytest" type="Node2D"]
+
+[node name="Conveyor3Way" parent="." instance=ExtResource("1_5jqm2")]
+position = Vector2(11, -17)
+
+[node name="BoxSpawner" parent="." instance=ExtResource("2_114j4")]
+visible = true
+position = Vector2(15, 23)
+spawn_interval = 1.5
+max_boxes = 10
+
+[node name="Control" parent="." instance=ExtResource("3_114j4")]
+offset_left = 348.0
+offset_top = 58.0
+offset_right = 354.0
+offset_bottom = 58.0
+real_factory_path = NodePath("../RealFactoryController")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 314)
+script = ExtResource("1_camera")
+
+[node name="RealFactoryController" type="Node" parent="."]
+script = ExtResource("4_flt5s")
+factory_controller_path = NodePath("../FactoryController")
+
+[node name="FactoryController" type="Node" parent="."]
+script = ExtResource("5_y1384")
+conveyor_path = NodePath("../Conveyor3Way")
+spawner_path = NodePath("../BoxSpawner")
+diverter_gate_path = NodePath("../Divertergate")
+weight_sensor_path = NodePath("../WeightSensor")
+color_sensor_path = NodePath("../ColorSensor")
+
+[node name="WeightSensor" parent="." instance=ExtResource("6_qfowl")]
+position = Vector2(22, 296)
+
+[node name="Divertergate" parent="." instance=ExtResource("7_d6oye")]
+position = Vector2(26, 430)
+
+[node name="size_senser" parent="." instance=ExtResource("8_d6oye")]
+position = Vector2(19, 130)

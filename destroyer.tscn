@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3p1alg5u58d5"]
+
+[ext_resource type="Script" uid="uid://c3i48q72xqk6t" path="res://box_destroyer.gd" id="2_epypp"]
+[ext_resource type="Script" uid="uid://c1qw24dpebiga" path="res://detect_aread.gd" id="3_gtegk"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="4_kfmue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(68, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtegk"]
+size = Vector2(54, 61)
+
+[node name="destroyer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(191, 41.5)
+scale = Vector2(0.4062499, 0.4296875)
+
+[node name="BoxDestroyer" type="Area2D" parent="."]
+script = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxDestroyer"]
+position = Vector2(191, 41.5)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="DetectArea" type="Area2D" parent="."]
+script = ExtResource("3_gtegk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(191, 41.5)
+shape = SubResource("RectangleShape2D_gtegk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HoverNameLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = -579.0
+offset_top = -461.0
+offset_right = -461.0
+offset_bottom = -426.0
+theme_override_fonts/font = ExtResource("4_kfmue")
+text = "destroyer"

@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0kfi1h7uy2d8"]
+
+[ext_resource type="Script" uid="uid://dv3gfg56heq4" path="res://rod.gd" id="1_rod"]
+[ext_resource type="Texture2D" uid="uid://bjdw7c744ynyk" path="res://rod_frame_open_0.png" id="2_open"]
+[ext_resource type="Texture2D" uid="uid://pp84my6ol3hn" path="res://rod_frame_closed.png" id="3_closed"]
+[ext_resource type="Texture2D" uid="uid://c7fxba7416ty8" path="res://rod_wheel_tread.png" id="4_wheel"]
+[ext_resource type="Texture2D" uid="uid://1tewp8mqyal1" path="res://rod_wheel_tread_2.png" id="5_wheel2"]
+[ext_resource type="Texture2D" uid="uid://blqh22bm2qwwx" path="res://rod_frame_open_1.png" id="6_open_alt"]
+[ext_resource type="Texture2D" uid="uid://dn1jr65kvltqd" path="res://rod_frame_mid.png" id="7_mid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grab"]
+size = Vector2(54, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(72, 42)
+
+[node name="ROD" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_rod")
+open_texture = ExtResource("2_open")
+open_alt_texture = ExtResource("6_open_alt")
+mid_texture = ExtResource("7_mid")
+closed_texture = ExtResource("3_closed")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.093633, 0.093633)
+texture = ExtResource("2_open")
+
+[node name="WheelRoot" type="Node2D" parent="."]
+z_index = 66
+z_as_relative = false
+
+[node name="WheelFL" type="Sprite2D" parent="WheelRoot"]
+position = Vector2(-20.5, -8.3)
+scale = Vector2(0.093633, 0.093633)
+texture = ExtResource("4_wheel")
+
+[node name="WheelFR" type="Sprite2D" parent="WheelRoot"]
+position = Vector2(20.5, -8.3)
+scale = Vector2(-0.093633, 0.093633)
+texture = ExtResource("5_wheel2")
+
+[node name="WheelBL" type="Sprite2D" parent="WheelRoot"]
+position = Vector2(-20.5, 28.2)
+scale = Vector2(0.093633, 0.093633)
+texture = ExtResource("4_wheel")
+
+[node name="WheelBR" type="Sprite2D" parent="WheelRoot"]
+position = Vector2(20.5, 28.2)
+scale = Vector2(-0.093633, 0.093633)
+texture = ExtResource("5_wheel2")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -38)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -38)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_grab")
+
+[node name="Bodycoliision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+disabled = true
+
+[node name="PathDriver" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,0 +1,687 @@
+[gd_scene load_steps=8 format=3 uid="uid://bd4g7meue1t8k"]
+
+[ext_resource type="Script" uid="uid://dn234io5mxkif" path="res://MiniCPlayground.gd" id="1_0fbet"]
+[ext_resource type="FontFile" uid="uid://bw5mt8vsfjb4y" path="res://Pixel Digivolve.otf" id="2_62e2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32srj"]
+bg_color = Color(0.113725, 0.14902, 0.266667, 0.96)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0, 0, 0, 0.32)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqcnv"]
+bg_color = Color(0.121569, 0.611765, 0.407843, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75vud"]
+bg_color = Color(0.160784, 0.215686, 0.360784, 0.95)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v4u8"]
+bg_color = Color(0.839216, 0.290196, 0.341176, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2h5u"]
+bg_color = Color(0.254902, 0.368627, 0.721569, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="LevelHeaderCard" type="PanelContainer" parent="HUDLayer"]
+visible = false
+offset_left = 20.0
+offset_top = 78.0
+offset_right = 430.0
+offset_bottom = 214.0
+
+[node name="HeaderMargin" type="MarginContainer" parent="HUDLayer/LevelHeaderCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="HeaderBox" type="VBoxContainer" parent="HUDLayer/LevelHeaderCard/HeaderMargin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderTopRow" type="HBoxContainer" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LevelBadge" type="Label" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox/HeaderTopRow"]
+custom_minimum_size = Vector2(112, 28)
+layout_mode = 2
+text = "ด่าน 1/8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LessonLabel" type="Label" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox/HeaderTopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "บทที่ 1: Sequence"
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox"]
+layout_mode = 2
+text = "ด่าน 1: เริ่มระบบโรงงาน"
+
+[node name="ProgressLabel" type="Label" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox"]
+layout_mode = 2
+text = "ความคืบหน้าของด่าน"
+
+[node name="ProgressBar" type="ProgressBar" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+max_value = 8.0
+value = 1.0
+show_percentage = false
+
+[node name="StarsTitle" type="Label" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox"]
+layout_mode = 2
+text = "เงื่อนไข 3 ดาว"
+
+[node name="StarGoals" type="VBoxContainer" parent="HUDLayer/LevelHeaderCard/HeaderMargin/HeaderBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MissionCard" type="PanelContainer" parent="HUDLayer"]
+visible = false
+offset_left = 16.0
+offset_top = 228.0
+offset_right = 330.0
+offset_bottom = 430.0
+
+[node name="MissionMargin" type="MarginContainer" parent="HUDLayer/MissionCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="MissionBox" type="VBoxContainer" parent="HUDLayer/MissionCard/MissionMargin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MissionTitle" type="Label" parent="HUDLayer/MissionCard/MissionMargin/MissionBox"]
+layout_mode = 2
+text = "🎯 เป้าหมายด่าน"
+
+[node name="MissionSubtitle" type="Label" parent="HUDLayer/MissionCard/MissionMargin/MissionBox"]
+layout_mode = 2
+text = "ทำให้ครบเพื่อปลดล็อกดาว"
+
+[node name="MissionItems" type="VBoxContainer" parent="HUDLayer/MissionCard/MissionMargin/MissionBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlaygroundScroll" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlaygroundScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="HeaderRow" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="PlaygroundScroll/VBoxContainer/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.960784, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 13
+text = "MINI-C EDITOR"
+autowrap_mode = 3
+vertical_alignment = 1
+
+[node name="HeaderActions" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer/HeaderRow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ZoomControls" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer/HeaderRow/HeaderActions"]
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 2
+
+[node name="ZoomOutButton" type="Button" parent="PlaygroundScroll/VBoxContainer/HeaderRow/HeaderActions/ZoomControls"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 13
+text = "-"
+
+[node name="ZoomLabel" type="Label" parent="PlaygroundScroll/VBoxContainer/HeaderRow/HeaderActions/ZoomControls"]
+custom_minimum_size = Vector2(36, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.815686, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 9
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ZoomInButton" type="Button" parent="PlaygroundScroll/VBoxContainer/HeaderRow/HeaderActions/ZoomControls"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 13
+text = "+"
+
+[node name="PanelExpandButton" type="Button" parent="PlaygroundScroll/VBoxContainer/HeaderRow/HeaderActions"]
+custom_minimum_size = Vector2(50, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 9
+text = "EXPAND"
+
+[node name="HeaderSubtitle" type="Label" parent="PlaygroundScroll/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Station Control Workspace"
+autowrap_mode = 3
+
+[node name="StationShell" type="PanelContainer" parent="PlaygroundScroll/VBoxContainer"]
+custom_minimum_size = Vector2(290, 116)
+layout_mode = 2
+
+[node name="StationMargin" type="MarginContainer" parent="PlaygroundScroll/VBoxContainer/StationShell"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="StationVBox" type="VBoxContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StationHeaderRow" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StationHeaderTitle" type="Label" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationHeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 10
+text = "STATION SELECTOR"
+vertical_alignment = 1
+
+[node name="StationStatusBadge" type="Label" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationHeaderRow"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 10
+text = "READY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StationTabsScroll" type="ScrollContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="StationTabs" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationTabsScroll"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StationMetaRow" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="StationInfoBox" type="VBoxContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationMetaRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="StationContextLabel" type="Label" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationMetaRow/StationInfoBox"]
+layout_mode = 2
+text = "Editing: Station A - Spawner"
+autowrap_mode = 3
+
+[node name="StationRoleLabel" type="Label" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationMetaRow/StationInfoBox"]
+layout_mode = 2
+text = "Role: Spawns boxes into the warehouse line"
+autowrap_mode = 3
+
+[node name="StationSignalBox" type="VBoxContainer" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationMetaRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="StationSignalLabel" type="Label" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationMetaRow/StationSignalBox"]
+layout_mode = 2
+text = "System Link: OK"
+horizontal_alignment = 2
+
+[node name="StationCodeHintLabel" type="Label" parent="PlaygroundScroll/VBoxContainer/StationShell/StationMargin/StationVBox/StationMetaRow/StationSignalBox"]
+layout_mode = 2
+text = "Starter: Ready"
+horizontal_alignment = 2
+
+[node name="TextEdit" type="CodeEdit" parent="PlaygroundScroll/VBoxContainer"]
+custom_minimum_size = Vector2(290, 180)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/caret_color = Color(0.682353, 0.686275, 0.678431, 1)
+theme_override_colors/selection_color = Color(0.14902, 0.309804, 0.470588, 1)
+theme_override_colors/font_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/background_color = Color(0.0666667, 0.0823529, 0.109804, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Button" type="Button" parent="PlaygroundScroll/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(88, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 14
+text = "RUN"
+
+[node name="ResetButton" type="Button" parent="PlaygroundScroll/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(78, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 13
+text = "RESET"
+
+[node name="SummitButton" type="Button" parent="PlaygroundScroll/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(88, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 14
+text = "SUBMIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlaygroundScroll/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+fit_content = true
+scroll_following_visible_characters = true
+
+[node name="DebugConsolePanel" type="PanelContainer" parent="PlaygroundScroll/VBoxContainer"]
+custom_minimum_size = Vector2(290, 190)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConsoleBox" type="VBoxContainer" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel"]
+layout_mode = 2
+
+[node name="ConsoleTitle" type="Label" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.341176, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 18
+text = "MISSION STATUS"
+
+[node name="ConsoleTabs" type="HBoxContainer" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="MissionTabButton" type="Button" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/ConsoleTabs"]
+custom_minimum_size = Vector2(68, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 10
+text = "MISSION"
+
+[node name="OutputTabButton" type="Button" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/ConsoleTabs"]
+custom_minimum_size = Vector2(64, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 10
+text = "OUTPUT"
+
+[node name="ErrorsTabButton" type="Button" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/ConsoleTabs"]
+custom_minimum_size = Vector2(64, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 10
+text = "ERRORS"
+
+[node name="HintsTabButton" type="Button" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/ConsoleTabs"]
+custom_minimum_size = Vector2(58, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 10
+text = "HINTS"
+
+[node name="PlayerFeedbackPanel" type="PanelContainer" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox"]
+custom_minimum_size = Vector2(0, 118)
+layout_mode = 2
+
+[node name="FeedbackMargin" type="MarginContainer" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="FeedbackBox" type="VBoxContainer" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="ProgressTitle" type="Label" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin/FeedbackBox"]
+visible = false
+layout_mode = 2
+text = "PROGRESS"
+
+[node name="ProgressMeta" type="Label" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin/FeedbackBox"]
+layout_mode = 2
+text = "Level 1/8  •  Sequence"
+autowrap_mode = 3
+
+[node name="ProgressBarMini" type="ProgressBar" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin/FeedbackBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+max_value = 8.0
+value = 1.0
+show_percentage = false
+
+[node name="ProgressStars" type="Label" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin/FeedbackBox"]
+visible = false
+layout_mode = 2
+text = "3-Star Goals"
+autowrap_mode = 3
+
+[node name="FeedbackStatus" type="Label" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin/FeedbackBox"]
+layout_mode = 2
+text = "พร้อมเริ่มภารกิจ"
+autowrap_mode = 3
+
+[node name="FeedbackDetail" type="Label" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/PlayerFeedbackPanel/FeedbackMargin/FeedbackBox"]
+visible = false
+layout_mode = 2
+text = "กด RUN เพื่อทดสอบโค้ด หรือกด SUBMIT เพื่อส่งตรวจ"
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlaygroundScroll/VBoxContainer/DebugConsolePanel/ConsoleBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+fit_content = true
+scroll_following_visible_characters = true
+
+[node name="ResultOverlay" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="Dimmer" type="ColorRect" parent="ResultOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.027451, 0.0509804, 0.105882, 0.7)
+
+[node name="CenterContainer" type="CenterContainer" parent="ResultOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultCard" type="PanelContainer" parent="ResultOverlay/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_32srj")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResultOverlay/CenterContainer/ResultCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Header" type="VBoxContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StatusBadge" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(150, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_tqcnv")
+text = "สำเร็จ!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.992157, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 28
+text = "Level Result"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.815686, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 16
+text = "สรุปผลการรันล่าสุด"
+horizontal_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Star1" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Stars"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.317647, 0.388235, 0.564706, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 40
+text = "★"
+
+[node name="Star2" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Stars"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.317647, 0.388235, 0.564706, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 40
+text = "★"
+
+[node name="Star3" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Stars"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.317647, 0.388235, 0.564706, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 40
+text = "★"
+
+[node name="ScoreLabel" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.858824, 0.32549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 38
+text = "0/100"
+horizontal_alignment = 1
+
+[node name="MetricsPanel" type="PanelContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_75vud")
+
+[node name="MetricsMargin" type="MarginContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="MetricsGrid" type="GridContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin"]
+layout_mode = 2
+columns = 3
+
+[node name="ChecksTitle" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin/MetricsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.815686, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 14
+text = "ตรวจผ่าน"
+horizontal_alignment = 1
+
+[node name="TimeTitle" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin/MetricsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.815686, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 14
+text = "เวลา"
+horizontal_alignment = 1
+
+[node name="BoxesTitle" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin/MetricsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.815686, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 14
+text = "กล่องถึงปลายทาง"
+horizontal_alignment = 1
+
+[node name="ChecksValue" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin/MetricsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 22
+text = "0/0"
+horizontal_alignment = 1
+
+[node name="TimeValue" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin/MetricsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 22
+text = "0.0s"
+horizontal_alignment = 1
+
+[node name="BoxesValue" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/MetricsPanel/MetricsMargin/MetricsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+
+[node name="ReasonsPanel" type="PanelContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_75vud")
+
+[node name="ReasonsMargin" type="MarginContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/ReasonsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="ReasonsBox" type="VBoxContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/ReasonsPanel/ReasonsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ReasonsTitle" type="Label" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/ReasonsPanel/ReasonsMargin/ReasonsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.815686, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 14
+text = "รายละเอียด"
+
+[node name="ReasonsScroll" type="ScrollContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/ReasonsPanel/ReasonsMargin/ReasonsBox"]
+custom_minimum_size = Vector2(0, 104)
+layout_mode = 2
+
+[node name="ReasonsLabel" type="RichTextLabel" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/ReasonsPanel/ReasonsMargin/ReasonsBox/ReasonsScroll"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="Buttons" type="HBoxContainer" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="LevelSelectButton" type="Button" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(150, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_75vud")
+text = "เลือกด่าน"
+
+[node name="RetryButton" type="Button" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(150, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_0v4u8")
+text = "เล่นใหม่"
+
+[node name="NextLevelButton" type="Button" parent="ResultOverlay/CenterContainer/ResultCard/MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(150, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2h5u")
+text = "ด่านถัดไป"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(676, 314)
+zoom = Vector2(0.9, 0.9)
